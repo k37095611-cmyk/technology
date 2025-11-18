@@ -4,7 +4,7 @@ let promoPopupShown = false;
 window.addEventListener('load', function() {
     setTimeout(function() {
         showPromoPopup();
-    }, 5000);
+    }, 35000);
 });
 
 function showPromoPopup() {
