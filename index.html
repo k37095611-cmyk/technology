@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeniorWise - Informative Hub for Seniors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">SeniorWise</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="signin.html" class="signin-link">Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Promotional Popup (Auto-appears after 5 seconds) -->
+    <div id="promoPopup" class="popup-overlay promo-popup" style="display: none;">
+        <div class="popup-container promo-container">
+            <span class="close-btn" onclick="closePromoPopup()">&times;</span>
+            <div class="popup-content">
+                <div class="popup-icon">🎉</div>
+                <h2>Welcome to SeniorWise!</h2>
+                <p>We're excited to have you here. Click anywhere to continue to sign in and access all our exclusive senior resources.</p>
+                <div class="popup-countdown">
+                    <!-- <p>Redirecting in <span id="countdown">5</span> seconds...</p> -->
+                </div>
+                <div class="popup-actions">
+                    <button class="btn btn-primary" onclick="redirectToSignUp()">Sign In Now</button>
+                    <!-- <p class="popup-note">Or click anywhere else on the screen</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rest of the index.html content remains exactly the same -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to SeniorWise</h1>
+        <p>Your Trusted Source for Health, Finance, Technology & Lifestyle Information</p>
+    </section>
+
+    <!-- Main Content Section -->
+    <main class="container">
+        <!-- Content data for the detailed popups -->
+        <script type="application/json" id="contentData">
+            {
+                "Heart Health Tips": {
+                    "description": "Essential information for maintaining a healthy heart as you age",
+                    "subtopics": [
+                        {
+                            "title": "Maintain Regular Exercise",
+                            "content": "Regular physical activity strengthens your heart and improves circulation. Aim for at least 150 minutes of moderate-intensity aerobic activity per week. Walking, swimming, and cycling are excellent low-impact exercises suitable for seniors. Consult with your doctor before starting any new exercise program. Consistency is key to maintaining a healthy heart."
+                        },
+                        {
+                            "title": "Healthy Diet for Heart",
+                            "content": "A heart-healthy diet should include plenty of vegetables, fruits, whole grains, and lean proteins. Reduce sodium intake to help manage blood pressure. Limit saturated fats and avoid trans fats. Omega-3 fatty acids from fish like salmon are beneficial for heart health. Stay hydrated by drinking plenty of water throughout the day."
+                        },
+                        {
+                            "title": "Monitor Blood Pressure",
+                            "content": "Check your blood pressure regularly at home or at your doctor's office. Normal blood pressure is less than 120/80 mmHg. Keep a record of your readings to track patterns. Understand your medications and take them as prescribed. Report any unusual changes to your healthcare provider immediately."
+                        },
+                        {
+                            "title": "Manage Stress Effectively",
+                            "content": "Chronic stress can negatively impact heart health. Practice relaxation techniques like deep breathing, meditation, or yoga. Spend time with loved ones and engage in activities you enjoy. Ensure you get adequate sleep - most adults need 7-9 hours per night. Consider joining support groups or talking to a therapist if stress feels overwhelming."
+                        },
+                        {
+                            "title": "Avoid Harmful Habits",
+                            "content": "Smoking and excessive alcohol consumption are major risk factors for heart disease. If you smoke, seek help to quit - resources are available. Limit alcohol to moderate amounts (no more than 1 drink per day for women, 2 for men). Get vaccinated against flu and pneumonia. Schedule regular check-ups with your cardiologist."
+                        }
+                    ]
+                },
+                "Reverse Mortgage Pros & Cons": {
+                    "description": "Understanding the benefits and drawbacks of reverse mortgages",
+                    "subtopics": [
+                        {
+                            "title": "Access Home Equity Easily",
+                            "content": "A reverse mortgage allows homeowners aged 62+ to convert home equity into cash without selling. No monthly payments are required during your lifetime if you remain in the home. Funds can be received as a lump sum, monthly payments, or line of credit. The loan is only repaid when you sell the home, move, or pass away. This can be beneficial for seniors needing funds for healthcare or living expenses."
+                        },
+                        {
+                            "title": "No Monthly Payments",
+                            "content": "Unlike traditional mortgages, reverse mortgages don't require monthly payments. Interest is added to the loan balance over time instead. This reduces strain on fixed incomes during retirement. You maintain full ownership of your home. However, the growing debt can significantly reduce the inheritance left to heirs."
+                        },
+                        {
+                            "title": "High Costs and Fees",
+                            "content": "Reverse mortgages typically involve higher fees than traditional mortgages including origination fees, insurance premiums, and appraisal costs. These costs can range from 2-5% of the home's value. The longer you keep the loan, the more interest accumulates. Total costs could exceed 50% of your home's value over time. It's important to understand all fees before committing."
+                        },
+                        {
+                            "title": "Impact on Inheritance",
+                            "content": "The loan balance grows over time with accumulated interest, reducing the equity available for heirs. Your heirs will need to repay the loan or sell the home to settle the debt. If the home value hasn't increased significantly, there may be little to no inheritance left. However, heirs are not personally liable for any shortfall if the home sells for less than owed."
+                        },
+                        {
+                            "title": "Affects Benefits & Assistance",
+                            "content": "Reverse mortgage funds can affect eligibility for need-based government assistance programs like Medicaid. However, Social Security and Medicare are generally not impacted. The loan balance counts as an asset for benefit determination purposes. It's crucial to understand how this might affect your overall financial situation. Consult with a financial advisor before proceeding."
+                        }
+                    ]
+                },
+                "Telehealth Services": {
+                    "description": "Modern healthcare solutions accessible from your home",
+                    "subtopics": [
+                        {
+                            "title": "Convenient Remote Consultations",
+                            "content": "Telehealth allows you to see doctors from home via video, phone, or messaging. No need to travel or wait in crowded waiting rooms. Ideal for routine check-ups, medication refills, and minor health concerns. You can have appointments at flexible times that work for your schedule. Simply need a computer, tablet, or smartphone with internet access."
+                        },
+                        {
+                            "title": "Cost-Effective Healthcare",
+                            "content": "Telehealth appointments are typically less expensive than in-person visits. No transportation costs or parking fees to worry about. Reduced travel time means less time away from other activities. Many insurance plans and Medicare cover telehealth services. Copays are often lower for virtual visits compared to office visits."
+                        },
+                        {
+                            "title": "Access to Specialists Anywhere",
+                            "content": "Connect with specialists regardless of location without traveling long distances. Particularly beneficial for those in rural areas with limited healthcare access. Get second opinions easily from experts across the country. Specialists can review your medical history before the appointment. Continuity of care is improved when multiple providers can access your records."
+                        },
+                        {
+                            "title": "Prescription Management Online",
+                            "content": "Doctors can prescribe medications directly during telehealth visits. Prescriptions can be sent to your local pharmacy electronically. Convenient for managing chronic conditions requiring regular medication adjustments. Reduces need for multiple pharmacy visits. Some services include medication delivery to your home."
+                        },
+                        {
+                            "title": "Mental Health & Counseling",
+                            "content": "Access therapists and counselors for mental health support via telehealth. Confidential sessions from the comfort of your home. Flexible scheduling to accommodate your needs. Particularly helpful if mobility or transportation is an issue. Many telehealth platforms specialize in senior mental health support."
+                        }
+                    ]
+                },
+                "Senior Dating Websites": {
+                    "description": "Finding companionship and connection in your golden years",
+                    "subtopics": [
+                        {
+                            "title": "Meet Like-Minded People",
+                            "content": "Senior dating sites connect you with people in your age group with similar interests. Filters help you find matches based on location, hobbies, and relationship goals. Browse profiles at your own pace without pressure. Join communities and forums to interact before dating. Make genuine connections with people you're compatible with."
+                        },
+                        {
+                            "title": "Safe & Secure Platforms",
+                            "content": "Reputable senior dating sites have strong security measures to protect personal information. Verification processes ensure profiles are genuine and reduce scams. Privacy controls let you decide what information to share. Customer support teams are available to handle issues. Read reviews and choose established platforms with good reputations."
+                        },
+                        {
+                            "title": "Flexible Relationship Options",
+                            "content": "Whether seeking companionship, friendship, or romance, options are available. Some prefer casual dating while others look for serious relationships. Activity partners and travel companions can also be found. Many seniors value friendship over romance. Whatever you're looking for, clearly communicate your intentions."
+                        },
+                        {
+                            "title": "Overcome Mobility Challenges",
+                            "content": "Online dating removes barriers for those with mobility issues or transportation difficulties. Relationships can develop at your pace with initial video calls. No need to travel to meet new people initially. Particularly helpful for seniors in assisted living or with health limitations. Technology bridges gaps that physical distance creates."
+                        },
+                        {
+                            "title": "Build Confidence & Social Skills",
+                            "content": "Re-entering the dating scene can feel daunting, but online platforms provide a comfortable starting point. Practice communication skills without pressure. Gain confidence through positive interactions. Join dating advice forums and read success stories. Many seniors find renewed enthusiasm for social connection."
+                        }
+                    ]
+                },
+                "Bitcoin vs Ethereum": {
+                    "description": "Understanding cryptocurrency options for modern investors",
+                    "subtopics": [
+                        {
+                            "title": "Purpose and Function",
+                            "content": "Bitcoin was created as a peer-to-peer electronic cash system and digital currency. Ethereum is a platform that enables smart contracts and decentralized applications. Bitcoin focuses on transactions and store of value. Ethereum provides infrastructure for building other applications. Understanding these differences helps clarify investment purposes."
+                        },
+                        {
+                            "title": "Technology & Blockchain",
+                            "content": "Bitcoin uses a simpler blockchain limited to transaction processing. Ethereum has a more complex blockchain supporting code execution. Bitcoin transactions are faster but less flexible. Ethereum allows programmable smart contracts on its network. Both use proof of work or proof of stake validation methods."
+                        },
+                        {
+                            "title": "Supply and Scarcity",
+                            "content": "Bitcoin has a maximum supply of 21 million coins, making it scarce. Ethereum has no maximum supply limit, which can affect value. Bitcoin's scarcity is seen as beneficial for long-term value preservation. Ethereum's unlimited supply may cause inflation over time. Supply dynamics influence investment attractiveness."
+                        },
+                        {
+                            "title": "Market Volatility & Risk",
+                            "content": "Both Bitcoin and Ethereum experience significant price volatility. Bitcoin is generally considered the more stable of the two. Ethereum can swing more dramatically due to development updates. Crypto markets are highly speculative and risky. Investment in either should be approached cautiously with funds you can afford to lose."
+                        },
+                        {
+                            "title": "Energy & Environmental Impact",
+                            "content": "Bitcoin mining consumes significant amounts of electricity. Ethereum transitioned to proof-of-stake, reducing energy consumption. Environmental concerns are important considerations for crypto investors. Bitcoin mining can be profitable in areas with cheap electricity. Understanding environmental impact helps make informed choices."
+                        }
+                    ]
+                }
+            }
+        </script>
+
+        <!-- Heart Health Tips Category -->
+        <section class="category-section">
+            <h2 class="category-heading">💚 Heart Health Tips</h2>
+            <div class="cards-grid">
+                <div class="topic-card" data-topic="Heart Health Tips">
+                    <h3>Maintain Regular Exercise</h3>
+                    <p>Physical activity for heart strength</p>
+                </div>
+                <div class="topic-card" data-topic="Heart Health Tips">
+                    <h3>Healthy Diet for Heart</h3>
+                    <p>Nutrition tips for cardiovascular health</p>
+                </div>
+                <div class="topic-card" data-topic="Heart Health Tips">
+                    <h3>Monitor Blood Pressure</h3>
+                    <p>Track vital signs regularly</p>
+                </div>
+                <div class="topic-card" data-topic="Heart Health Tips">
+                    <h3>Manage Stress Effectively</h3>
+                    <p>Mental wellness for heart health</p>
+                </div>
+                <div class="topic-card" data-topic="Heart Health Tips">
+                    <h3>Avoid Harmful Habits</h3>
+                    <p>Lifestyle changes for better health</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reverse Mortgage Pros and Cons Category -->
+        <section class="category-section">
+            <h2 class="category-heading">🏠 Reverse Mortgage Pros & Cons</h2>
+            <div class="cards-grid">
+                <div class="topic-card" data-topic="Reverse Mortgage Pros & Cons">
+                    <h3>Access Home Equity Easily</h3>
+                    <p>Convert equity to cash</p>
+                </div>
+                <div class="topic-card" data-topic="Reverse Mortgage Pros & Cons">
+                    <h3>No Monthly Payments</h3>
+                    <p>Payment flexibility advantage</p>
+                </div>
+                <div class="topic-card" data-topic="Reverse Mortgage Pros & Cons">
+                    <h3>High Costs and Fees</h3>
+                    <p>Financial considerations</p>
+                </div>
+                <div class="topic-card" data-topic="Reverse Mortgage Pros & Cons">
+                    <h3>Impact on Inheritance</h3>
+                    <p>Consider future generations</p>
+                </div>
+                <div class="topic-card" data-topic="Reverse Mortgage Pros & Cons">
+                    <h3>Affects Benefits & Assistance</h3>
+                    <p>Government benefits impact</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Telehealth Services Category -->
+        <section class="category-section">
+            <h2 class="category-heading">💻 Telehealth Services</h2>
+            <div class="cards-grid">
+                <div class="topic-card" data-topic="Telehealth Services">
+                    <h3>Convenient Remote Consultations</h3>
+                    <p>Healthcare from your home</p>
+                </div>
+                <div class="topic-card" data-topic="Telehealth Services">
+                    <h3>Cost-Effective Healthcare</h3>
+                    <p>Affordable medical services</p>
+                </div>
+                <div class="topic-card" data-topic="Telehealth Services">
+                    <h3>Access to Specialists Anywhere</h3>
+                    <p>Expert medical guidance</p>
+                </div>
+                <div class="topic-card" data-topic="Telehealth Services">
+                    <h3>Prescription Management Online</h3>
+                    <p>Medication delivery services</p>
+                </div>
+                <div class="topic-card" data-topic="Telehealth Services">
+                    <h3>Mental Health & Counseling</h3>
+                    <p>Mental wellness support</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Senior Dating Websites Category -->
+        <section class="category-section">
+            <h2 class="category-heading">❤️ Senior Dating Websites</h2>
+            <div class="cards-grid">
+                <div class="topic-card" data-topic="Senior Dating Websites">
+                    <h3>Meet Like-Minded People</h3>
+                    <p>Find compatible companions</p>
+                </div>
+                <div class="topic-card" data-topic="Senior Dating Websites">
+                    <h3>Safe & Secure Platforms</h3>
+                    <p>Protect your privacy</p>
+                </div>
+                <div class="topic-card" data-topic="Senior Dating Websites">
+                    <h3>Flexible Relationship Options</h3>
+                    <p>Define your own path</p>
+                </div>
+                <div class="topic-card" data-topic="Senior Dating Websites">
+                    <h3>Overcome Mobility Challenges</h3>
+                    <p>Connect from anywhere</p>
+                </div>
+                <div class="topic-card" data-topic="Senior Dating Websites">
+                    <h3>Build Confidence & Social Skills</h3>
+                    <p>Embrace new connections</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bitcoin vs Ethereum Category -->
+        <section class="category-section">
+            <h2 class="category-heading">💰 Bitcoin vs Ethereum</h2>
+            <div class="cards-grid">
+                <div class="topic-card" data-topic="Bitcoin vs Ethereum">
+                    <h3>Purpose and Function</h3>
+                    <p>Different use cases explained</p>
+                </div>
+                <div class="topic-card" data-topic="Bitcoin vs Ethereum">
+                    <h3>Technology & Blockchain</h3>
+                    <p>Technical differences</p>
+                </div>
+                <div class="topic-card" data-topic="Bitcoin vs Ethereum">
+                    <h3>Supply and Scarcity</h3>
+                    <p>Economic models compared</p>
+                </div>
+                <div class="topic-card" data-topic="Bitcoin vs Ethereum">
+                    <h3>Market Volatility & Risk</h3>
+                    <p>Investment considerations</p>
+                </div>
+                <div class="topic-card" data-topic="Bitcoin vs Ethereum">
+                    <h3>Energy & Environmental Impact</h3>
+                    <p>Sustainability concerns</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Details Popup Modal -->
+    <div id="topicModal" class="popup-overlay" style="display: none;">
+        <div class="popup-container details-popup">
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: info@seniorwise.com</p>
+                <p>Phone: 1-800-SENIOR-1</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SeniorWise. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

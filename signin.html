@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - SeniorWise</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .signin-container {
+            max-width: 500px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .signin-container h1 {
+            color: #0066cc;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .signin-container p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+        }
+
+        .signin-container button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .signin-container button:hover {
+            background-color: #004499;
+        }
+
+        .signin-container a {
+            display: block;
+            text-align: center;
+            color: #0066cc;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        .signin-container a:hover {
+            text-decoration: underline;
+        }
+
+        .benefits {
+            background-color: #f0f7ff;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .benefits h3 {
+            color: #0066cc;
+            margin-bottom: 1rem;
+        }
+
+        .benefits ul {
+            list-style: none;
+        }
+
+        .benefits li {
+            padding: 0.5rem 0;
+            color: #555;
+        }
+
+        .benefits li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">SeniorWise</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="signin.html" class="active signin-link">Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sign In Container -->
+    <main class="signin-container">
+        <h1>Welcome to SeniorWise</h1>
+        <p>Sign in to your account to access exclusive content</p>
+        
+        <form onsubmit="handleSignIn(event)">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+
+        <a href="#">Don't have an account? Sign up here</a>
+        <a href="#">Forgot your password?</a>
+
+        <div class="benefits">
+            <h3>Member Benefits</h3>
+            <ul>
+                <li>Access to exclusive health content and tips</li>
+                <li>Personalized recommendations based on your interests</li>
+                <li>Manage your subscription preferences</li>
+                <li>Save favorite articles and resources</li>
+                <li>Priority customer support</li>
+                <li>Access to community forums and discussions</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: info@seniorwise.com</p>
+                <p>Phone: 1-800-SENIOR-1</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SeniorWise. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSignIn(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            alert('Sign in successful! Welcome ' + email);
+            // You can redirect to a dashboard or home page here
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
